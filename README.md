@@ -1,2 +1,2 @@
-# react-markup-farm-products
-Created with CodeSandbox
+# Учебный проект «Фермерские продукты»
+## [Курс «Вёрстка React-компонентов» от HTML Academy](https://htmlacademy.ru/levelup/levelup-react-components)
