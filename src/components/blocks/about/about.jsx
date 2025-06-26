@@ -1,0 +1,20 @@
+import React from "react";
+import Title from "../../ui/title/title";
+
+function About() {
+    return (
+        <section className="about">
+            <div className="about__inner">
+                <div className="about__text-wrap">
+                    <Title level="1">Магазин фермерских продуктов с&nbsp;доставкой</Title>
+                    <p className="about__text">
+                        Все продукты изготавливаются под заказ. Фермеры начинают готовить продукты за день до отправки
+                        заказа клиентам. Именно поэтому мы принимаем заказы заранее и доставляем продукты максимально свежими.
+                    </p>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+export default About;
