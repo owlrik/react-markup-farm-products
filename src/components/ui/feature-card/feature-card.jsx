@@ -21,9 +21,7 @@ function FeatureCard({
                 <Title level="3">{title}</Title>
             </div>
             <div className="feature-card__description">
-                <p>
-                    dangerouslySetInnerHTML={{__html: description}}
-                </p>
+                <p dangerouslySetInnerHTML={{__html: description}} />
             </div>
         </div>
     );
