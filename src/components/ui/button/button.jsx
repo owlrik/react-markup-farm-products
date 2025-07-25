@@ -1,9 +1,16 @@
 import React from "react";
+import {StyledButton} from "./styled";
 
-function Button({children, link, ...props}) {
-    return link
-        ? (<a href={link} {...props}>{children}</a>)
-        : (<button {...props}>{children}</button>);
+function Button({children, minWidth, link, ...props}) {
+    return (
+        <StyledButton
+            $minWidth={minWidth}
+            {...(link ? {href: link} : {as: "button", type: "button"})}
+            {...props}
+        >
+            {children}
+        </StyledButton>
+    )
 }
 
 export default Button;

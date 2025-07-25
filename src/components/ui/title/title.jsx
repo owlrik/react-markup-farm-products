@@ -1,11 +1,35 @@
 import React from "react";
+import {StyledTitle} from "./styled";
 
-function Title({children, level}) {
-    const TitleTag = `h${level}`;
+const TitleSize = {
+    BIG: "big",
+    MEDIUM: "medium",
+    SMALL: "small",
+    TINY: "tiny",
+    DEFAULT: ""
+};
 
+const TitleLevel = {
+    H1: "1",
+    H2: "2",
+    H3: "3",
+    H4: "4",
+    H5: "5",
+    H6: "6"
+};
+
+function Title({
+    level = 1,
+    size,
+    children,
+    className
+}) {
     return (
-        <TitleTag>{children}</TitleTag>
+        <StyledTitle as={`h${level}`} $size={size} className={className}>
+            {children}
+        </StyledTitle>
     );
 }
 
+export {TitleSize, TitleLevel};
 export default Title;

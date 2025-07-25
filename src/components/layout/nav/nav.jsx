@@ -3,7 +3,7 @@ import Button from "../../ui/button/button";
 
 function Nav() {
     return (
-        <Button>Купить</Button>
+        <Button minWidth={360} link={"/buy"}>Купить</Button>
     );
 }
 

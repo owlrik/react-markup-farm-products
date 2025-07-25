@@ -1,5 +1,6 @@
 import React from "react";
 import FeatureCard from "../../ui/feature-card/feature-card";
+import {TitleLevel, TitleSize} from "../../ui/title/title";
 
 function FeaturesList({features}) {
     return (
@@ -7,7 +8,7 @@ function FeaturesList({features}) {
             <ul className="features__list">
                 {features.map((feature) => (
                     <li className="features__item" key={feature.id}>
-                        <FeatureCard {...feature} />
+                        <FeatureCard level={TitleLevel.H2} {...feature} />
                     </li>
                 ))}
             </ul>

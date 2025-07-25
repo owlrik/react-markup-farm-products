@@ -1,9 +1,9 @@
 import React from "react";
-import Title from "../../ui/title/title";
+import Title, {TitleSize} from "../../ui/title/title";
 import Button from "../../ui/button/button";
 import FeaturesList from "../features-list/features-list";
 
-function Features({features}) {
+function Features({features, level}) {
     let farmList = [];
     let storeList = [];
 
@@ -18,7 +18,7 @@ function Features({features}) {
     return (
         <section className="features">
             <div className="features__inner">
-                <Title level="2">Почему фермерские продукты лучше?</Title>
+                <Title level={level} size={TitleSize.MEDIUM}>Почему фермерские продукты лучше?</Title>
 
                 <div className="features__list-wrap">
                     <FeaturesList features={farmList} />
@@ -26,7 +26,7 @@ function Features({features}) {
                 </div>
 
                 <div className="features__btn-wrap">
-                    <Button>Купить</Button>
+                    <Button minWidth={260} link={"/buy"}>Купить</Button>
                 </div>
             </div>
         </section>

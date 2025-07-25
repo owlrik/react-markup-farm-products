@@ -5,6 +5,7 @@ const createDefaultTheme = () => {
         gray: "#f6f6f6",
         primary: "#333",
         accentMain: "#fc9b27",
+        accentMainDark: "#fc7427",
         accentGreen: "#88aa4d",
         accentGreenLight: "#e1edce",
         accentRed: "#f75531",
@@ -17,6 +18,8 @@ const createDefaultTheme = () => {
             ...colors,
             button: {
                 primary: colors.accentMain,
+                primaryHover: colors.accentMainDark,
+                primaryActive: colors.accentMainDark,
             },
             text: {
                 primary: colors.primary,
