@@ -9,7 +9,7 @@ const StyledButton = styled.a`
     font-weight: 700;
     line-height: 58px;
     color: ${(props) => props.theme.colors.text.inverted};
-    background-color: ${(props) => props.theme.colors.buttons.primary};
+    background-color: ${(props) => props.theme.colors.button.primary};
     text-align: center;
     border-radius: 5px;
     text-decoration: none;
