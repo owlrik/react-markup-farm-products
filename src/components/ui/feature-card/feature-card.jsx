@@ -1,29 +1,27 @@
 import React from "react";
 import Title from "../../ui/title/title";
+import "./style.css";
 
-function FeatureCard({
-  type,
-  level,
-  title,
-  description,
-  image,
-}) {
+function FeatureCard({ type, level, title, description, image }) {
   return (
-    <div className="feature-card">
+    <div className={`feature-card ${type !== "farm" ? "--store" : ""}`}>
       <div className="feature-card__header">
         <img
           className="feature-card__icon"
           src={image}
           width="56"
           height="56"
-          alt="Иконка"
+          aria-hidden="true"
         />
-        <span
-          className="feature-card__label">{`${type === "farm" ? "Фермерские продукты" : "Магазинные продукты"}`}</span>
-        <Title level={level}>{title}</Title>
+        <div className="feature-card__header-text">
+          <span className="feature-card__label">{`${
+            type === "farm" ? "Фермерские продукты" : "Магазинные продукты"
+          }`}</span>
+          <Title level={level}>{title}</Title>
+        </div>
       </div>
       <div className="feature-card__description">
-        <p dangerouslySetInnerHTML={{__html: description}}/>
+        <p dangerouslySetInnerHTML={{ __html: description }} />
       </div>
     </div>
   );
