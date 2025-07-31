@@ -1,29 +1,35 @@
 import React from "react";
-import Title from "../../ui/title/title";
-import "./style.css";
+import Title, { TitleSize } from "../title/title";
+import {
+  StyledFeatureCard,
+  Header,
+  HeaderTextWrapper,
+  Icon,
+  Label,
+  TextWrapper,
+  Text,
+} from "./styles";
 
 function FeatureCard({ type, level, title, description, image }) {
   return (
-    <div className={`feature-card ${type !== "farm" ? "--store" : ""}`}>
-      <div className="feature-card__header">
-        <img
-          className="feature-card__icon"
-          src={image}
-          width="56"
-          height="56"
-          aria-hidden="true"
-        />
-        <div className="feature-card__header-text">
-          <span className="feature-card__label">{`${
-            type === "farm" ? "Фермерские продукты" : "Магазинные продукты"
-          }`}</span>
-          <Title level={level}>{title}</Title>
-        </div>
-      </div>
-      <div className="feature-card__description">
-        <p dangerouslySetInnerHTML={{ __html: description }} />
-      </div>
-    </div>
+    <StyledFeatureCard type={type}>
+      <Header>
+        <Icon src={image} width={56} height={56} aria-hidden="true" />
+        <HeaderTextWrapper>
+          <Label type={type}>
+            {`${
+              type === "farm" ? "Фермерские продукты" : "Магазинные продукты"
+            }`}
+          </Label>
+          <Title as={"h3"} size={TitleSize.EXTRA_SMALL}>
+            {title}
+          </Title>
+        </HeaderTextWrapper>
+      </Header>
+      <TextWrapper>
+        <Text dangerouslySetInnerHTML={{ __html: description }} />
+      </TextWrapper>
+    </StyledFeatureCard>
   );
 }
 

@@ -2,7 +2,7 @@ import React from "react";
 import Title, { TitleSize } from "../../ui/title/title";
 import Button from "../../ui/button/button";
 import FeaturesList from "../features-list/features-list";
-import "./style.css";
+import { ContentWrapper, ListWrapper } from "./styles";
 
 function Features({ features, level }) {
   let farmList = [];
@@ -17,23 +17,23 @@ function Features({ features, level }) {
   });
 
   return (
-    <section className="features">
-      <div className="features__inner">
-        <Title level={level} size={TitleSize.MEDIUM}>
+    <section>
+      <ContentWrapper>
+        <Title as={"h2"} size={TitleSize.MEDIUM}>
           Почему фермерские продукты лучше?
         </Title>
 
-        <div className="features__list-wrap">
+        <ListWrapper>
           <FeaturesList features={farmList} />
           <FeaturesList features={storeList} />
-        </div>
+        </ListWrapper>
 
-        <div className="features__btn-wrap">
+        <div>
           <Button minWidth={260} link={"/buy"}>
             Купить
           </Button>
         </div>
-      </div>
+      </ContentWrapper>
     </section>
   );
 }

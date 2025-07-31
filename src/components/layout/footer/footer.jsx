@@ -1,15 +1,15 @@
 import React from "react";
 import Logo from "../../ui/logo/logo";
-import "./style.css";
+import { StyledFooter, Copyright } from "./styles";
 
 function Footer() {
   return (
-    <footer className="page-footer">
+    <StyledFooter>
       <Logo />
-      <p>
+      <Copyright>
         Создано <span>2021</span>
-      </p>
-    </footer>
+      </Copyright>
+    </StyledFooter>
   );
 }
 

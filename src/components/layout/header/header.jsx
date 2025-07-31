@@ -1,14 +1,14 @@
 import React from "react";
 import Logo from "../../ui/logo/logo";
 import Nav from "../../layout/nav/nav";
-import "./style.css";
+import { StyledHeader } from "./styles";
 
 function Header() {
   return (
-    <header className="page-header">
+    <StyledHeader>
       <Logo />
       <Nav />
-    </header>
+    </StyledHeader>
   );
 }
 
