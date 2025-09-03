@@ -14,6 +14,11 @@ const Input = styled.input`
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0;
 
+  &:focus-visible {
+    border-color: ${(props) => props.theme.colors.accentMain};
+    outline: 0;
+  }
+
   &::placeholder {
     color: ${(props) => props.theme.colors.primary};
   }

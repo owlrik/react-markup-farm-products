@@ -19,6 +19,9 @@ import {
 
 function CatalogForm({ products }) {
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const [inputState, setInputState] = useState("");
+
+  const canBuy = selectedProducts && selectedProducts.length && inputState;
 
   const checkProduct = (id) => {
     if (selectedProducts.includes(id)) {
@@ -30,9 +33,15 @@ function CatalogForm({ products }) {
     }
   };
 
-  const price = products
-    .filter((item) => selectedProducts.includes(item.id))
-    .reduce((total, item) => total + parseInt(item.description.price, 10), 0);
+  const price =
+    products && products.length
+      ? products
+          .filter((item) => selectedProducts.includes(item.id))
+          .reduce(
+            (total, item) => total + parseInt(item.description.price, 10),
+            0
+          )
+      : 0;
 
   const handleBuy = () => {
     alert(`
@@ -43,16 +52,15 @@ function CatalogForm({ products }) {
 
   return (
     <div>
-      <form>
-        <Panel>
-          <Title as="h2" size={TitleSize.EXTRA_SMALL}>
-            Выберите продукты
-          </Title>
+      {products && products.length ? (
+        <form>
+          <Panel>
+            <Title as="h2" size={TitleSize.EXTRA_SMALL}>
+              Выберите продукты
+            </Title>
 
-          <Fieldset>
-            {products &&
-              products.length &&
-              products.map((item, index) => (
+            <Fieldset>
+              {products.map((item, index) => (
                 <CheckboxLabel key={index}>
                   <CheckboxInput
                     type="checkbox"
@@ -64,37 +72,42 @@ function CatalogForm({ products }) {
                   <CheckboxText>{item.name}</CheckboxText>
                 </CheckboxLabel>
               ))}
-          </Fieldset>
-        </Panel>
+            </Fieldset>
+          </Panel>
 
-        <BuyPanel>
-          <Title as="h2" size={TitleSize.EXTRA_SMALL}>
-            Сделать заказ
-          </Title>
+          <BuyPanel>
+            <Title as="h2" size={TitleSize.EXTRA_SMALL}>
+              Сделать заказ
+            </Title>
 
-          <InputWrap>
-            <Input
-              type="text"
-              name="address"
-              placeholder="Введите адрес доставки"
-              required
-            />
-          </InputWrap>
+            <InputWrap>
+              <Input
+                type="text"
+                name="address"
+                value={inputState}
+                placeholder="Введите адрес доставки"
+                required
+                onChange={(evt) => setInputState(evt.target.value)}
+              />
+            </InputWrap>
 
-          <PriceWrap>
-            <PriceText>Цена</PriceText>
-            <PriceValue>
-              <span>{price}</span> руб.
-            </PriceValue>
-          </PriceWrap>
+            <PriceWrap>
+              <PriceText>Цена</PriceText>
+              <PriceValue>
+                <span>{price}</span> руб.
+              </PriceValue>
+            </PriceWrap>
 
-          <SubmitWrap>
-            <Button type="submit" onClick={handleBuy}>
-              Купить
-            </Button>
-          </SubmitWrap>
-        </BuyPanel>
-      </form>
+            <SubmitWrap>
+              <Button type="submit" onClick={handleBuy} disabled={!canBuy}>
+                Купить
+              </Button>
+            </SubmitWrap>
+          </BuyPanel>
+        </form>
+      ) : (
+        <p>Продукты были слишком вкусные и их разобрали.</p>
+      )}
     </div>
   );
 }

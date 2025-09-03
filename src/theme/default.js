@@ -23,6 +23,7 @@ const createDefaultTheme = () => {
         secondary: colors.accentGreen,
         secondaryHover: colors.accentGreenLight,
         secondaryActive: colors.accentGreenLight,
+        disabled: colors.gray,
       },
       text: {
         primary: colors.primary,

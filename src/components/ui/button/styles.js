@@ -31,6 +31,16 @@ const StyledButton = styled.a`
   &:active {
     box-shadow: none;
   }
+
+  &[disabled] {
+    background-color: ${(props) => props.theme.colors.button.primary};
+    opacity: 0.5;
+
+    &:hover,
+    &:active {
+      box-shadow: none;
+    }
+  }
 `;
 
 export { StyledButton };
