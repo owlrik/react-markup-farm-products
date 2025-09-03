@@ -34,6 +34,13 @@ function CatalogForm({ products }) {
     .filter((item) => selectedProducts.includes(item.id))
     .reduce((total, item) => total + parseInt(item.description.price, 10), 0);
 
+  const handleBuy = () => {
+    alert(`
+      Спасибо за покупку.
+      Цена составляет ${price} руб.
+    `);
+  };
+
   return (
     <div>
       <form>
@@ -82,7 +89,9 @@ function CatalogForm({ products }) {
           </PriceWrap>
 
           <SubmitWrap>
-            <Button type="submit">Купить</Button>
+            <Button type="submit" onClick={handleBuy}>
+              Купить
+            </Button>
           </SubmitWrap>
         </BuyPanel>
       </form>
