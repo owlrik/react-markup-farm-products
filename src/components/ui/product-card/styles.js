@@ -30,31 +30,15 @@ const StyledTitle = styled(Title)`
   margin-bottom: 16px;
 `;
 
-const LabelWrap = styled.div`
+const PriceWrap = styled.div`
   margin-top: 14px;
 `;
 
-const StyledLabel = styled(Label)`
+const StyledPrice = styled(Label)`
   padding: 4px 8px;
   font-weight: 700;
   color: ${(props) => props.theme.colors.text.primary};
   background-color: ${(props) => props.theme.colors.accentBlue};
-`;
-
-const SpecList = styled.dl`
-  display: flex;
-  flex-direction: column;
-  gap 8px;
-`;
-
-const SpecTitle = styled.dt`
-  display: inline;
-  font-weight: 700;
-`;
-
-const SpecValue = styled.dd`
-  display: inline;
-  margin: 0;
 `;
 
 export {
@@ -63,9 +47,6 @@ export {
   Image,
   Info,
   StyledTitle,
-  LabelWrap,
-  StyledLabel,
-  SpecList,
-  SpecTitle,
-  SpecValue,
+  PriceWrap,
+  StyledPrice,
 };

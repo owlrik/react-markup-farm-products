@@ -2,74 +2,38 @@ import React from "react";
 import { TitleSize } from "../title/title";
 import SafeHtml from "../../utils/safe-html/safe-html";
 import Tabs from "../tabs/tabs";
+import OptionList from "../option-list/option-list";
 import {
   StyledProductCard,
   ImageWrap,
   Image,
   Info,
   StyledTitle,
-  LabelWrap,
-  StyledLabel,
-  SpecList,
-  SpecTitle,
-  SpecValue,
+  PriceWrap,
+  StyledPrice,
 } from "./styles";
 
-function ProductCard({ id, name, image, description, specs, value }) {
+function ProductCard({
+  name,
+  price,
+  weight,
+  image,
+  description,
+  specifications,
+  structure,
+}) {
   const tabs = [
     {
       title: "Описание",
-      content: (
-        <>
-          <SafeHtml html={description.text} />
-          <LabelWrap>
-            <StyledLabel>{description.price}</StyledLabel>
-          </LabelWrap>
-        </>
-      ),
+      content: <SafeHtml html={description} />,
     },
     {
       title: "Характеристики",
-      content: (
-        <SpecList>
-          <div>
-            <SpecTitle>Масса:</SpecTitle> <SpecValue>{specs.weight}</SpecValue>
-          </div>
-          <div>
-            <SpecTitle>Срок годности:</SpecTitle>{" "}
-            <SpecValue>{specs.expiration}</SpecValue>
-          </div>
-          {specs.code && (
-            <div>
-              <SpecTitle>Порода:</SpecTitle>{" "}
-              <SafeHtml html={specs.code} tag={SpecValue} />
-            </div>
-          )}
-          <div>
-            <SpecTitle>Место происхождения:</SpecTitle>{" "}
-            <SpecValue>{specs.origin}</SpecValue>
-          </div>
-        </SpecList>
-      ),
+      content: <OptionList list={specifications} />,
     },
     {
       title: "Свойства",
-      content: (
-        <SpecList>
-          <div>
-            <SpecTitle>Энергетическая ценность:</SpecTitle>{" "}
-            <SpecValue>
-              <SafeHtml html={value.energy} />
-            </SpecValue>
-          </div>
-          <div>
-            <SpecTitle>Пищевая ценность:</SpecTitle>{" "}
-            <SpecValue>
-              <SafeHtml html={value.nutritional} />
-            </SpecValue>
-          </div>
-        </SpecList>
-      ),
+      content: <OptionList list={structure} />,
     },
   ];
 
@@ -84,7 +48,13 @@ function ProductCard({ id, name, image, description, specs, value }) {
           {name}
         </StyledTitle>
 
-        <Tabs tabs={tabs} />
+        <Tabs tabs={tabs} maxContentHeight="105px" />
+
+        <PriceWrap>
+          <StyledPrice>
+            {price} руб. / {weight} гр.
+          </StyledPrice>
+        </PriceWrap>
       </Info>
     </StyledProductCard>
   );

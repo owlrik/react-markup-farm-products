@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { TabList, TabButton, TabPanel } from "./styles";
 
-function Tabs({ tabs }) {
+function Tabs({ tabs, maxContentHeight }) {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
@@ -37,7 +37,9 @@ function Tabs({ tabs }) {
       </TabList>
 
       <div>
-        <TabPanel>{tabs[activeTab].content}</TabPanel>
+        <TabPanel $maxContentHeight={maxContentHeight}>
+          {tabs[activeTab].content}
+        </TabPanel>
       </div>
     </div>
   );

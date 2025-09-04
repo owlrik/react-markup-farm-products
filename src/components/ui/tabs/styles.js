@@ -28,6 +28,10 @@ const TabButton = styled.button`
 `;
 
 const TabPanel = styled.div`
+  height: ${(props) => props.$maxContentHeight || "auto"};
+  max-height: ${(props) => props.$maxContentHeight || "none"};
+  overflow-y: auto;
+  scrollbar-width: thin;
   font-size: 14px;
 `;
 
