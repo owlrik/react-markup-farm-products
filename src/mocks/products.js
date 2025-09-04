@@ -59,6 +59,66 @@ const products = [
         "белки&nbsp;&mdash; 22&nbsp;г., жиры&nbsp;&mdash; 17&nbsp;г., углеводы&nbsp;&mdash; 0&nbsp;г.; на&nbsp;100&nbsp;г",
     },
   },
+  {
+    id: 3,
+    name: 'Сыр "Амст" с пажитником',
+    image: "https://i.ibb.co/ZYDZjJk/2.jpg",
+    description: {
+      text: "Базовый полутвердый сыр. Благодаря семенам пажитника сыр приобретает ореховое послевкусие, которое идеально сочетается со&nbsp;сливочными нотками. Выдержка 1&nbsp;месяц.",
+      price: "400 руб. / 300 гр",
+    },
+    specs: {
+      weight: "0.3 кг",
+      expiration: "30 суток",
+      code: "",
+      origin: "",
+    },
+    value: {
+      energy: "323 ккал/1352 кДж",
+      nutritional:
+        "белки&nbsp;&mdash; 25,2&nbsp;г., жиры&nbsp;&mdash; 27&nbsp;г., углеводы&nbsp;&mdash; 3,6&nbsp;г.; на&nbsp;100&nbsp;г",
+    },
+  },
+  {
+    id: 4,
+    name: 'Сыр "Камамбер"',
+    image: "https://i.ibb.co/4TCJV5r/3.jpg",
+    description: {
+      text: "Мягкий сыр из&nbsp;пастеризованного коровьего молока с&nbsp;добавлением культур белой плесени.",
+      price: "390 руб. / 200 гр",
+    },
+    specs: {
+      weight: "0.2 кг",
+      expiration: "30 суток",
+      code: "",
+      origin: "",
+    },
+    value: {
+      energy: "303 ккал/1268 кДж",
+      nutritional:
+        "белки&nbsp;&mdash; 25,2&nbsp;г., жиры&nbsp;&mdash; 27&nbsp;г., углеводы&nbsp;&mdash; 3,6&nbsp;г.; на&nbsp;100&nbsp;г",
+    },
+  },
+  {
+    id: 5,
+    name: "Мед майский горный",
+    image: "https://i.ibb.co/2jS02Jk/4.jpg",
+    description: {
+      text: "Мед урожая 2025&nbsp;года. Необычно нежный майский мед, собранный в&nbsp;субтропических рощах Северо-кавказского заповедника раскрывается целой гаммой цитрусовых оттенков.",
+      price: "590 руб. / 200 гр",
+    },
+    specs: {
+      weight: "0.2 кг",
+      expiration: "24 месяца",
+      code: "",
+      origin: "",
+    },
+    value: {
+      energy: "303 ккал/1268 кДж",
+      nutritional:
+        "белки&nbsp;&mdash; 0,3&nbsp;г., жиры&nbsp;&mdash; 0&nbsp;г., углеводы&nbsp;&mdash; 80&nbsp;г.; на&nbsp;100&nbsp;г",
+    },
+  },
 ];
 
 export default products;
