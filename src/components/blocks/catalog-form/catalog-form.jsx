@@ -67,7 +67,7 @@ function CatalogForm({ products }) {
                     name={`product-${item.id}`}
                     value={item.name}
                     checked={selectedProducts.includes(item.id)}
-                    onChange={(evt) => checkProduct(item.id)}
+                    onChange={() => checkProduct(item.id)}
                   />
                   <CheckboxText>{item.name}</CheckboxText>
                 </CheckboxLabel>
