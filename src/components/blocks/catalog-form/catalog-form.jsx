@@ -37,10 +37,7 @@ function CatalogForm({ products }) {
     products && products.length
       ? products
           .filter((item) => selectedProducts.includes(item.id))
-          .reduce(
-            (total, item) => total + parseInt(item.description.price, 10),
-            0
-          )
+          .reduce((total, item) => total + parseInt(item.price, 10), 0)
       : 0;
 
   const handleBuy = () => {
