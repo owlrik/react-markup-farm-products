@@ -1,16 +1,32 @@
 import React from "react";
-import { StyledCatalogList } from "./styles";
+import { StyledSwiper, StyledSwiperSlide } from "./styles";
 import ProductCard from "../../ui/product-card/product-card";
+
+import "swiper/css";
+import "swiper/css/scrollbar";
+
+import { Mousewheel, Scrollbar } from "swiper/modules";
 
 function CatalogList({ products }) {
   return products?.length ? (
-    <StyledCatalogList>
+    <StyledSwiper
+      slidesPerView={"auto"}
+      spaceBetween={12}
+      direction={"vertical"}
+      mousewheel={true}
+      scrollbar={{
+        hide: true,
+        draggable: true,
+      }}
+      modules={[Mousewheel, Scrollbar]}
+      className="catalog-swiper"
+    >
       {products.map((product) => (
-        <li key={product.id}>
+        <StyledSwiperSlide key={`product-${product.id}`}>
           <ProductCard {...product} />
-        </li>
+        </StyledSwiperSlide>
       ))}
-    </StyledCatalogList>
+    </StyledSwiper>
   ) : null;
 }
 

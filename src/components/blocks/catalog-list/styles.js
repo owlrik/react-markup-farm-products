@@ -1,13 +1,18 @@
 import styled from "styled-components";
-import { Ul } from "../../styled";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-const StyledCatalogList = styled(Ul)`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+const StyledSwiper = styled(Swiper)`
+  max-height: calc(
+    100vh -
+      (
+        ${(props) => props.theme.headerHeight} +
+          ${(props) => props.theme.footerHeight}
+      )
+  );
 `;
 
-export { StyledCatalogList };
+const StyledSwiperSlide = styled(SwiperSlide)`
+  height: auto;
+`;
+
+export { StyledSwiper, StyledSwiperSlide };
