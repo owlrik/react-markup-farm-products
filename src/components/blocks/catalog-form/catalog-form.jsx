@@ -17,21 +17,10 @@ import {
   SubmitWrap,
 } from "./styles";
 
-function CatalogForm({ products }) {
-  const [selectedProducts, setSelectedProducts] = useState([]);
+function CatalogForm({ products, selectedProducts, onClickLabel }) {
   const [inputState, setInputState] = useState("");
 
   const canBuy = selectedProducts && selectedProducts.length && inputState;
-
-  const checkProduct = (id) => {
-    if (selectedProducts.includes(id)) {
-      setSelectedProducts((currentProducts) =>
-        currentProducts.filter((itemId) => itemId !== id)
-      );
-    } else {
-      setSelectedProducts((currentProducts) => [...currentProducts, id]);
-    }
-  };
 
   const price =
     products && products.length
@@ -45,6 +34,10 @@ function CatalogForm({ products }) {
       Спасибо за покупку.
       Цена составляет ${price} руб.
     `);
+  };
+
+  const labelClickHandler = (id) => {
+    onClickLabel(id);
   };
 
   return (
@@ -64,7 +57,7 @@ function CatalogForm({ products }) {
                     name={`product-${item.id}`}
                     value={item.name}
                     checked={selectedProducts.includes(item.id)}
-                    onChange={() => checkProduct(item.id)}
+                    onChange={() => labelClickHandler(item.id)}
                   />
                   <CheckboxText>{item.name}</CheckboxText>
                 </CheckboxLabel>
