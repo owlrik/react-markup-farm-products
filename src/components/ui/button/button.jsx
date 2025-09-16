@@ -7,7 +7,7 @@ const Button = forwardRef(
       <StyledButton
         ref={ref}
         $minWidth={minWidth}
-        {...(link ? { href: link } : { as: "button", type: "button", onClick })}
+        {...(link ? { to: link } : { as: "button", type: "button", onClick })}
         className={className}
         {...props}
       >

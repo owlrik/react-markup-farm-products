@@ -3,6 +3,7 @@ import Title, { TitleSize } from "../../ui/title/title";
 import Button from "../../ui/button/button";
 import FeaturesList from "../features-list/features-list";
 import { ContentWrapper, ListWrapper } from "./styles";
+import { AppRoute } from "../../utils/const";
 
 function Features({ features, level }) {
   let farmList = [];
@@ -29,7 +30,7 @@ function Features({ features, level }) {
         </ListWrapper>
 
         <div>
-          <Button minWidth={260} link={"/buy"}>
+          <Button minWidth={260} link={AppRoute.BUY}>
             Купить
           </Button>
         </div>

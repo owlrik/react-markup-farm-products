@@ -1,19 +1,15 @@
 import React from "react";
 import Header from "../header/header";
 import Footer from "../footer/footer";
-import MainPage from "../../pages/main-page/main-page";
-import BuyPage from "../../pages/buy-page/buy-page";
 import { Main } from "./styles";
+import { Outlet } from "react-router-dom";
 
-function PageWrapper({ ...props }) {
+function PageWrapper() {
   return (
     <>
       <Header />
       <Main>
-        {/*
-          <MainPage {...props} />
-        */}
-        <BuyPage {...props} />
+        <Outlet />
       </Main>
       <Footer />
     </>

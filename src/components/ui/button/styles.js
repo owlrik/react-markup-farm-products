@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const StyledButton = styled.a`
+const StyledButton = styled(Link)`
   display: block;
   min-height: 60px;
   font-size: ${(props) => props.theme.fontSizes.base};
