@@ -16,7 +16,7 @@ const StyledLogo = styled(Link)`
 
 const StyledLogoMainPage = styled.span`
   ${logoStyle}
-  cursor: pointer;
+  cursor: default;
 `;
 
 const Text = styled.span`
