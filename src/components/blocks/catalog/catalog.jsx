@@ -7,6 +7,10 @@ function Catalog({ products }) {
   const [selectedProductIds, setSelectedProductIds] = useState([]);
   const [swiperInstance, setSwiperInstance] = useState(null);
 
+  const selectedProducts = selectedProductIds.map((id) =>
+    products.find((product) => product.id === id)
+  );
+
   const scrollToProductSlide = (index) => {
     swiperInstance.slideTo(index, 0);
   };
@@ -18,7 +22,7 @@ function Catalog({ products }) {
       currentProductIds.splice(selectedIndex, 1);
     } else {
       currentProductIds.push(id);
-      const index = products.findIndex((item) => item.id === id);
+      const index = products.findIndex((product) => product.id === id);
       scrollToProductSlide(index, 0);
     }
 
@@ -30,7 +34,7 @@ function Catalog({ products }) {
       <ContentInner>
         <CatalogForm
           products={products}
-          selectedProducts={selectedProductIds}
+          selectedProducts={selectedProducts}
           onClickLabel={handleProductClick}
         />
         <CatalogList products={products} onSwiperInit={setSwiperInstance} />

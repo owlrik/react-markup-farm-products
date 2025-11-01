@@ -22,21 +22,21 @@ function CatalogForm({ products, selectedProducts, onClickLabel }) {
 
   const canBuy = selectedProducts && selectedProducts.length && inputState;
 
-  const price =
-    products && products.length
-      ? products
-          .filter((item) => selectedProducts.includes(item.id))
-          .reduce((total, item) => total + parseInt(item.price, 10), 0)
-      : 0;
+  const price = selectedProducts.reduce(
+    (total, product) => (total += product.price),
+    0
+  );
 
   const handleBuy = () => {
-    alert(`
-      Спасибо за покупку.
-      Цена составляет ${price} руб.
-    `);
+    // eslint-disable-next-line no-alert
+    alert(`Спасибо за заказ, вы купили:\n${selectedProducts
+      .map((product) => `${product.name} - ${product.price} руб.`)
+      .join("\n")}
+    Итого: ${price} руб.
+    Доставка по адресу: ${inputState}.`);
   };
 
-  const labelClickHandler = (id) => {
+  const handleLabelClick = (id) => {
     onClickLabel(id);
   };
 
@@ -50,16 +50,18 @@ function CatalogForm({ products, selectedProducts, onClickLabel }) {
             </Title>
 
             <Fieldset>
-              {products.map((item, index) => (
-                <CheckboxLabel key={index}>
+              {products.map((product) => (
+                <CheckboxLabel key={product.id}>
                   <CheckboxInput
                     type="checkbox"
-                    name={`product-${item.id}`}
-                    value={item.name}
-                    checked={selectedProducts.includes(item.id)}
-                    onChange={() => labelClickHandler(item.id)}
+                    name={`product-${product.id}`}
+                    value={product.name}
+                    checked={selectedProducts.some(
+                      (selectedProduct) => selectedProduct.id === product.id
+                    )}
+                    onChange={() => handleLabelClick(product.id)}
                   />
-                  <CheckboxText>{item.name}</CheckboxText>
+                  <CheckboxText>{product.name}</CheckboxText>
                 </CheckboxLabel>
               ))}
             </Fieldset>
