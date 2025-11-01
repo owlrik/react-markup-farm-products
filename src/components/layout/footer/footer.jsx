@@ -7,7 +7,7 @@ function Footer() {
     <StyledFooter>
       <Logo />
       <Copyright>
-        Создано <span>2021</span>
+        Создано <span>2025</span>
       </Copyright>
     </StyledFooter>
   );
